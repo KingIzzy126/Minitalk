@@ -6,7 +6,7 @@
 /*   By: ialashqa <ialashqa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 16:37:10 by ialashqa          #+#    #+#             */
-/*   Updated: 2024/04/24 18:50:30 by ialashqa         ###   ########.fr       */
+/*   Updated: 2024/04/24 20:01:13 by ialashqa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,13 @@ void	send_message(int pid, char *message)
 			bit--;
 		}
 		message++;
+	}
+	bit = 7;
+	while (bit >= 0)
+	{
+		kill(pid, SIGUSR2);
+		usleep(100);
+		bit--;
 	}
 }
 
